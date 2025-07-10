@@ -1,0 +1,80 @@
+/* Fuente general y color de texto */
+/* Título principal de la vista */
+.root{
+    -fx-font-family: "Noto Sans";
+}
+
+.section-title{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading1{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading2{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading3{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading4{
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading5{
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+
+/* AnchorPane principal (fondo base) */
+.anchor-pane {
+    -fx-background-color: #17183B;
+    -fx-background-radius: 5px;
+}
+
+/* BorderPane como contenedor principal */
+.border-pane {
+    -fx-background-color: #1E1F4B;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+/* Pane del centro (contenedor de los títulos y listas) */
+.pane {
+    -fx-background-color: #17183B;
+    -fx-border-radios: 5px;
+}
+
+/* Botones con solo imagen (si los quieres sin texto también) */
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.button-text {
+    -fx-background-color: #6D9DC5;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+}
+
+.list-view{
+    -fx-brackground-color:#1E1F4B;
+    -fx-background-radius: 5px;
+}
+
+

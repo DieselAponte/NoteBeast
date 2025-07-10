@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            styleClass="anchor-pane"
+            stylesheets="@style/NotePadStyle.css"
+            xmlns="http://javafx.com/javafx/24.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="aponte.dev.notebeast.controller.NotePadController">
+    <children>
+        <Pane layoutX="10.0" layoutY="10.0" prefHeight="380.0" prefWidth="480.0">
+            <children>
+                <BorderPane prefHeight="380.0" prefWidth="480.0" styleClass="border-pane">
+                    <!--Principio del SideBar de Navegación-->
+                    <left>
+                        <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="71.0" BorderPane.alignment="TOP_CENTER">
+                            <children>
+                                <Button mnemonicParsing="false" text="Button">
+                                    <graphic>
+                                        <ImageView fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <!--Insertar la imagen de proyectos -->
+                                                <Image url="@/aponte/dev/notebeast/images/ProjectImageDT.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" text="Button">
+                                    <graphic>
+                                        <ImageView fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <!--Insertar la imagen de Tareas -->
+                                                <Image url="@/aponte/dev/notebeast/images/TaskImageDT.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="25.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" text="Button">
+                                    <graphic>
+                                        <ImageView fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <!--Insertar la imagen de Calendario -->
+                                                <Image url="@/aponte/dev/notebeast/images/CalendarImageDT.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="25.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" text="Button">
+                                    <graphic>
+                                        <ImageView fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <!--Insertar la imagen de Notas -->
+                                                <Image url="@/aponte/dev/notebeast/images/NotePadImageDT.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="25.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false" text="Button">
+                                    <graphic>
+                                        <ImageView fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <!--Insertar la imagen de Configuracion -->
+                                                <Image url="@/aponte/dev/notebeast/images/ConfigurationImageDT.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="100.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets />
+                            </BorderPane.margin>
+                        </VBox>
+                    </left>
+                    <!--Fin del SideBar de Navegación-->
+
+                    <!--Resto de componentes de la UI-->
+                </BorderPane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

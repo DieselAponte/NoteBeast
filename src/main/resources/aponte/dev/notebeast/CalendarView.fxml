@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" styleClass="anchor-pane" stylesheets="@style/CalendarStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aponte.dev.notebeast.controller.ConfigurationController">
+    <children>
+        <Pane layoutX="10.0" layoutY="10.0" prefHeight="380" prefWidth="480.0">
+            <children>
+                <BorderPane prefHeight="380.0" prefWidth="480.0" styleClass="border-pane">
+                    <left>
+                        <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="47.0" BorderPane.alignment="TOP_CENTER">
+                            <children>
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/ProjectImageDT.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="20.0" />
+                                    </VBox.margin>
+
+                                </Button>
+
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/TaskImageDT.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="25" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/CalendarImageDT.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets top="25.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/NotePadImageDT.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+
+                                    <VBox.margin>
+                                        <Insets left="6.0" top="25.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/ConfigurationImageDT.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <!--
+                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
+                                    -->
+                                    <VBox.margin>
+                                        <Insets bottom="0.0" top="68.0" />
+                                    </VBox.margin>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </left>
+                    <!--Fin del SideBar-->
+                    <center>
+                        <Pane prefHeight="360" prefWidth="410" BorderPane.alignment="CENTER">
+                            <children>
+                                <Pane layoutY="10" prefHeight="360" prefWidth="410" styleClass="anchor-pane">
+                                    <children>
+                                        <HBox alignment="CENTER" spacing="10" styleClass="navigation-month">
+                                            <Button alignment="CENTER_LEFT" mnemonicParsing="flase" styleClass="navigation-forward-back-arrows">
+                                                <graphic>
+                                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                                        <image>
+                                                            <!--Añadir imagen del icono del backward-arrow-->
+                                                            <!--<Image url="@images/Calendar_BackArrowButton.png"/>-->
+                                                            <Image url="@images/ConfigurationImageDT.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+
+                                            <Label alignment="CENTER" layoutX="330.0" layoutY="20.0" styleClass="section-title" text="Julio" />
+
+                                            <Button alignment="CENTER_RIGHT" mnemonicParsing="flase" styleClass="navigation-forward-back-arrows">
+                                                <graphic>
+                                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                                        <image>
+                                                            <!--Añadir imagen del icono del forward-arrow-->
+                                                            <!--<Image url="@images/Calendar_ForwardArrowButton.png"/>-->
+                                                            <Image url="@images/ConfigurationImageDT.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                        </HBox>
+
+                                        <!-- GRIDPANE DEL CALENDARIO -->
+                                        <GridPane fx:id="calendarGrid" hgap="10" layoutX="5.0" layoutY="38.0" prefHeight="314.0" prefWidth="397.0" vgap="10">
+
+                                            <!-- 7 COLUMNAS IGUALES -->
+                                            <columnConstraints>
+                                                <ColumnConstraints percentWidth="14.2857" />
+                                                <ColumnConstraints percentWidth="14.2857" />
+                                                <ColumnConstraints percentWidth="14.2857" />
+                                                <ColumnConstraints percentWidth="14.2857" />
+                                                <ColumnConstraints percentWidth="14.2857" />
+                                                <ColumnConstraints percentWidth="14.2857" />
+                                                <ColumnConstraints percentWidth="14.2857" />
+                                            </columnConstraints>
+
+                                            <!-- 5 FILAS IGUALES -->
+                                            <rowConstraints>
+                                                <RowConstraints percentHeight="20" />
+                                                <RowConstraints percentHeight="20" />
+                                                <RowConstraints percentHeight="20" />
+                                                <RowConstraints percentHeight="20" />
+                                                <RowConstraints percentHeight="20" />
+                                            </rowConstraints>
+
+                                            <!-- FILA 0: DÍAS 1–7 -->
+                                            <VBox alignment="TOP_CENTER" prefHeight="61.0" prefWidth="54.0" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                <children>
+                                                    <Label styleClass="day-number" text="1" />
+                                                    <HBox alignment="CENTER" spacing="5">
+                                                        <Label styleClass="task-label" text="Tarea A" />
+                                                        <ImageView fitHeight="12" fitWidth="12">
+                                                            <Image url="@images/HighPriorityImageDT.png" />
+                                                        </ImageView>
+                                                    </HBox>
+                                                </children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                                <children><Label styleClass="day-number" text="2" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                                <children><Label styleClass="day-number" text="3" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                                <children><Label styleClass="day-number" text="4" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="4" GridPane.rowIndex="0">
+                                                <children><Label styleClass="day-number" text="5" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="5" GridPane.rowIndex="0">
+                                                <children><Label styleClass="day-number" text="6" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="6" GridPane.rowIndex="0">
+                                                <children><Label styleClass="day-number" text="7" /></children>
+                                            </VBox>
+
+                                            <!-- FILA 1: DÍAS 8–14 -->
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                                <children><Label styleClass="day-number" text="8" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <children><Label styleClass="day-number" text="9" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                <children><Label styleClass="day-number" text="10" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                <children><Label styleClass="day-number" text="11" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                <children><Label styleClass="day-number" text="12" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                                <children><Label styleClass="day-number" text="13" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                                <children><Label styleClass="day-number" text="14" /></children>
+                                            </VBox>
+
+                                            <!-- FILA 2: DÍAS 15–21 -->
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                                <children><Label styleClass="day-number" text="15" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <children><Label styleClass="day-number" text="16" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                <children><Label styleClass="day-number" text="17" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                                <children><Label styleClass="day-number" text="18" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                                <children><Label styleClass="day-number" text="19" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                                <children><Label styleClass="day-number" text="20" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                                <children><Label styleClass="day-number" text="21" /></children>
+                                            </VBox>
+
+                                            <!-- FILA 3: DÍAS 22–28 -->
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                                <children><Label styleClass="day-number" text="22" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <children><Label styleClass="day-number" text="23" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                <children><Label styleClass="day-number" text="24" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                <children><Label styleClass="day-number" text="25" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                                <children><Label styleClass="day-number" text="26" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                                <children><Label styleClass="day-number" text="27" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                                <children><Label styleClass="day-number" text="28" /></children>
+                                            </VBox>
+
+                                            <!-- FILA 4: DÍAS 29–35 -->
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                                <children><Label styleClass="day-number" text="29" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <children><Label styleClass="day-number" text="30" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                                <children><Label styleClass="day-number" text="31" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                                <children><Label styleClass="day-number" text="32" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                                <children><Label styleClass="day-number" text="33" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                                <children><Label styleClass="day-number" text="34" /></children>
+                                            </VBox>
+                                            <VBox alignment="TOP_CENTER" prefHeight="90" prefWidth="90" spacing="5" styleClass="calendar-cell" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                                <children><Label styleClass="day-number" text="35" /></children>
+                                            </VBox>
+                                        </GridPane>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </Pane>
+                    </center>
+                </BorderPane>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
