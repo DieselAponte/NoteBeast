@@ -1,5 +1,4 @@
 /* Fuente general y color de texto */
-/* Título principal de la vista */
 .root{
     -fx-font-family: "Noto Sans";
 }
@@ -28,30 +27,30 @@
     -fx-text-fill: #6D9DC5;
 }
 
-.section-heading4{
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #6D9DC5;
-}
-
-.section-heading5{
-    -fx-font-size: 10px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #6D9DC5;
-}
-
-
 /* AnchorPane principal (fondo base) */
 .anchor-pane {
     -fx-background-color: #17183B;
     -fx-background-radius: 5px;
 }
 
-/* BorderPane como contenedor principal */
+/* BorderPane contenedor principal (fondo sidebar-debil) */
 .border-pane {
     -fx-background-color: #1E1F4B;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
+}
+
+/* Estilo base del botón del sidebar */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+
+/* Efecto hover con turquesa */
+.sidebar-button:hover {
+    -fx-background-color: #00C9A7;
 }
 
 /* Pane del centro (contenedor de los títulos y listas) */
@@ -60,18 +59,23 @@
     -fx-border-radios: 5px;
 }
 
-/* Botones con solo imagen (si los quieres sin texto también) */
+/* Botones con solo imagen (SideBar) */
 .button {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
 
 .button-text {
+    -fx-text-fill:white;
     -fx-background-color: #6D9DC5;
     -fx-font-weight: bold;
     -fx-background-radius: 5px;
 }
+.button-text:hover {
+    -fx-background-color: #00C9A7;
+}
 
+/*Estilos de Project View*/
 .list-view{
     -fx-brackground-color:#1E1F4B;
     -fx-background-radius: 5px;

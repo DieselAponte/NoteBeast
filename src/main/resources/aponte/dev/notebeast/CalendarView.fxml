@@ -23,7 +23,7 @@
                     <left>
                         <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="47.0" BorderPane.alignment="TOP_CENTER">
                             <children>
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -38,7 +38,7 @@
 
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -48,11 +48,11 @@
                                     </graphic>
 
                                     <VBox.margin>
-                                        <Insets top="25" />
+                                        <Insets top="15" />
                                     </VBox.margin>
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -62,11 +62,11 @@
                                     </graphic>
 
                                     <VBox.margin>
-                                        <Insets top="25.0" />
+                                        <Insets top="15.0" />
                                     </VBox.margin>
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -76,11 +76,27 @@
                                     </graphic>
 
                                     <VBox.margin>
-                                        <Insets left="6.0" top="25.0" />
+                                        <Insets left="6.0" top="15.0" />
                                     </VBox.margin>
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/TimerImageDT.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <!--
+                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
+                                    -->
+                                    <VBox.margin>
+                                        <Insets top="15.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -92,7 +108,7 @@
                                     Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
                                     -->
                                     <VBox.margin>
-                                        <Insets bottom="0.0" top="68.0" />
+                                        <Insets bottom="0.0" top="40.0" />
                                     </VBox.margin>
                                 </Button>
                             </children>

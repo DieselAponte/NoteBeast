@@ -1,0 +1,162 @@
+/* Fuente general y color de texto */
+.root{
+    -fx-font-family: "Noto Sans";
+}
+
+.section-title{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading1{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading2{
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+.section-heading3{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+
+/* AnchorPane principal (fondo base) */
+.anchor-pane {
+    -fx-background-color: #17183B;
+    -fx-background-radius: 5px;
+}
+
+/* BorderPane como contenedor principal */
+.border-pane {
+    -fx-background-color: #1E1F4B;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+/* Estilo base del botón del sidebar */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+
+/* Efecto hover con turquesa */
+.sidebar-button:hover {
+    -fx-background-color: #00C9A7;
+}
+
+
+/* Pane del centro (contenedor de los títulos y listas) */
+.pane {
+    -fx-background-color: #17183B;
+    -fx-border-radios: 5px;
+}
+
+/* Botones con solo imagen*/
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.button-text {
+    -fx-background-color: #00B7B8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+}
+
+/* Componentes del NotePad*/
+.tab-text{
+    -fx-text-fill: white;
+}
+
+.menu-bar{
+    -fx-background-radius: 5px;
+}
+
+.text-area{
+    -fx-background-color: #1E1F4B;
+    -fx-text-fill:#17183B;
+    -fx-highlight-fill: #00C9A7;
+    -fx-highlight-text-fill: black;
+    -fx-border-color: #3A3C65;
+    -fx-border-radius: 0 0 8px 8px;
+    -fx-background-radius: 0 0 8px 8px;
+    -fx-padding: 8px;
+    -fx-font-family: "Noto Sans";
+    -fx-font-size: 14px;
+}
+/**
+.note-text-area {
+    -fx-background-color: #1E1F4B;
+    -fx-control-inner-background: #1E1F4B;
+    -fx-text-fill: white;
+    -fx-highlight-fill: #00C9A7;
+    -fx-highlight-text-fill: black;
+    -fx-border-color: #3A3C65;
+    -fx-border-radius: 0 0 8px 8px;
+    -fx-background-radius: 0 0 8px 8px;
+    -fx-padding: 8px;
+    -fx-font-family: "Noto Sans";
+    -fx-font-size: 14px;
+}
+ */
+/* ===== Topbar de pestañas ===== */
+.tab-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 2px;
+}
+
+.tab-button {
+    -fx-background-color: #3A3C65;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8 8 0 0;
+    -fx-pref-height: 28px;
+    -fx-border-color: transparent;
+}
+
+.tab-button:hover {
+    -fx-background-color: #4A4C75;
+}
+
+.tab-close-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-pref-width: 28px;
+}
+
+.tab-add-button {
+    -fx-background-radius: 5px;
+    -fx-alignment: center;
+    -fx-cursor: hand;
+}
+
+/* ===== Barra de menús ===== */
+.note-menu-bar {
+    -fx-background-color: #2A2B4F;
+    -fx-padding: 0 5px;
+}
+
+.note-menu-bar .menu-zbar {
+    -fx-background-color: transparent;
+}
+
+.note-menu-bar .label {
+    -fx-text-fill: white;
+    -fx-font-weight: normal;
+}
+
+/* Los ítems drop-down heredan estilo nativo de JavaFX */
+
+/* ===== Área de texto ===== */
+

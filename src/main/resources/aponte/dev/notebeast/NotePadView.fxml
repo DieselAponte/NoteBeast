@@ -3,14 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="500.0"
@@ -24,7 +25,7 @@
                     <left>
                         <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="47.0" BorderPane.alignment="TOP_CENTER">
                             <children>
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -39,7 +40,7 @@
 
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -49,11 +50,11 @@
                                     </graphic>
 
                                     <VBox.margin>
-                                        <Insets top="25" />
+                                        <Insets top="15" />
                                     </VBox.margin>
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -63,11 +64,11 @@
                                     </graphic>
 
                                     <VBox.margin>
-                                        <Insets top="25.0" />
+                                        <Insets top="15.0" />
                                     </VBox.margin>
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -77,11 +78,27 @@
                                     </graphic>
 
                                     <VBox.margin>
-                                        <Insets left="6.0" top="25.0" />
+                                        <Insets left="6.0" top="15.0" />
                                     </VBox.margin>
                                 </Button>
 
-                                <Button alignment="TOP_CENTER" mnemonicParsing="false">
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
+                                    <graphic>
+                                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@images/TimerImageDT.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <!--
+                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
+                                    -->
+                                    <VBox.margin>
+                                        <Insets top="15.0" />
+                                    </VBox.margin>
+                                </Button>
+
+                                <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                                     <graphic>
                                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -93,7 +110,7 @@
                                     Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
                                     -->
                                     <VBox.margin>
-                                        <Insets bottom="0.0" top="68.0" />
+                                        <Insets bottom="0.0" top="40.0" />
                                     </VBox.margin>
                                 </Button>
                             </children>
@@ -104,7 +121,47 @@
                         <Pane prefHeight="360" prefWidth="410" BorderPane.alignment="CENTER">
                             <children>
                                 <Pane layoutY="10" prefHeight="360" prefWidth="410" styleClass="anchor-pane">
+                                    <children>
+                                        <Label layoutX="14" layoutY="14" styleClass="section-title" text="Bloc de notas" />
+                                        <!-- 1. Topbar de pestañas -->
+                                        <HBox layoutX="9.0" layoutY="37.0" prefHeight="46.0" prefWidth="391.0" spacing="2" styleClass="tab-bar">
+                                             <HBox prefHeight="43.0" prefWidth="101.0" styleClass="tab-button">
+                                                <children>
+                                                              <!-- pestaña abierta -->
+                                                              <Button styleClass="tab-text" text="Sin título" />
+                                                              <!-- botón cerrar pestaña -->
+                                                              <Button styleClass="tab-text" text="✕" />
+                                                </children>
+                                             </HBox>
+                                            <!-- botón nueva pestaña -->
+                                            <Button styleClass="tab-add-button" text="+" />
+                                            <!--Cambiar el icono del boton por el add_button-->
+                                            <Button mnemonicParsing="false" styleClass="add-button">
+                                                <graphic>
+                                                    <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <!--Añadir imagen del icono del add-button-->
+                                                            <!--<Image url="@images/Task_AddSimbolButton.png" />-->
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                        </HBox>
 
+                                        <!-- 2. Barra de menús -->
+                                        <MenuBar layoutX="5.0" layoutY="64.0" prefHeight="39.0" prefWidth="400" styleClass="note-menu-bar">
+                                            <menus>
+                                                <Menu text="Archivo" />
+                                                <Menu text="Editar" />
+                                                <Menu text="Ver" />
+                                                <Menu text="Añadir a ..." />
+                                            </menus>
+                                        </MenuBar>
+
+                                        <!-- 3. Área de texto principal -->
+                                        <TextArea layoutX="5.0" layoutY="90.0" prefHeight="256.0" prefWidth="400" styleClass="text-area" wrapText="true" />
+
+                                    </children>
                                 </Pane>
                             </children>
                         </Pane>

@@ -1,4 +1,5 @@
 /* Fuente general y color de texto */
+/* Título principal de la vista */
 .root{
     -fx-font-family: "Noto Sans";
 }
@@ -33,6 +34,13 @@
     -fx-text-fill: #6D9DC5;
 }
 
+.section-heading5{
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6D9DC5;
+}
+
+
 /* AnchorPane principal (fondo base) */
 .anchor-pane {
     -fx-background-color: #17183B;
@@ -66,7 +74,7 @@
     -fx-border-radios: 5px;
 }
 
-/* Botones con solo imagen*/
+/* Botones con solo imagen (si los quieres sin texto también) */
 .button {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -82,79 +90,21 @@
 .button-text:hover{
     -fx-background-color: #00C9A7;
 }
+.list-view{
+    -fx-brackground-color:#1E1F4B;
+    -fx-background-radius: 5px;
+}
 
-/*Estilos del panel de Configuración*/
-/*Estilos de los textos*/
-.configuration-subtitle {
-    -fx-font-size: 16px;
-    -fx-text-fill: #6DC5D1;
+/*Estilos de TimerClass*/
+.highlighted-text{
     -fx-font-weight: bold;
+    -fx-text-fill: #00C9A7;
 }
 
-.configuration-label{
+.text-light{
     -fx-text-fill: white;
 }
 
-.configuration-mini-label {
-    -fx-font-size: 11px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #00B7B8;
-}
 
-/*Estilos de los componentes*/
-.toggle-button{
-    -fx-font-fill: transparent;
-    -fx-font-size: 1px;
-}
-
-.configuration-action-button {
-    -fx-background-color: #00C9A7;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 10;
-}
-
-/* Estilo general del ComboBox */
-.combo-box {
-    -fx-background-color: transparent;
-    -fx-border-color: white;
-    -fx-border-width: 1.5px;
-    -fx-border-radius: 5px;
-    -fx-text-fill: white;
-}
-
-/* Estilo del texto dentro del ComboBox */
-.combo-box .list-cell {
-    -fx-text-fill: white;
-    -fx-background-color: transparent;
-}
-
-/* Estilo del área editable (si fuera editable) */
-.combo-box .text-field {
-    -fx-text-fill: white;
-    -fx-background-color: transparent;
-    -fx-highlight-fill: white;
-    -fx-highlight-text-fill: black;
-}
-
-/* Estilo de la flecha desplegable */
-.combo-box .arrow {
-    -fx-background-color: white;
-}
-
-/* Estilo del popup del ComboBox */
-.combo-box-popup .list-view {
-    -fx-background-color: #1e1e2f; /* puedes ajustar esto si quieres transparencia */
-    -fx-control-inner-background: transparent;
-}
-
-.combo-box-popup .list-view .list-cell {
-    -fx-text-fill: white;
-    -fx-background-color: transparent;
-}
-
-.combo-box-popup .list-view .list-cell:hover {
-    -fx-background-color: #3a3a4f;
-}
 
 

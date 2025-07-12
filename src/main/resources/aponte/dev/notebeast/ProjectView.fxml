@@ -21,11 +21,10 @@
                <left>
                   <VBox alignment="TOP_CENTER" prefHeight="380.0" prefWidth="47.0" BorderPane.alignment="TOP_CENTER">
                      <children>
-                        <Button accessibleRole="IMAGE_VIEW" alignment="TOP_CENTER" mnemonicParsing="false">
+                        <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                            <graphic>
                               <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <!--Insertar la imagen de proyectos -->
                                     <Image url="@images/ProjectImageDT.png" />
                                  </image>
                               </ImageView>
@@ -34,72 +33,86 @@
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>
+
                         </Button>
-                        <Button mnemonicParsing="false">
+
+                        <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                            <graphic>
-                              <ImageView fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <!--Insertar la imagen de Tareas -->
                                     <Image url="@images/TaskImageDT.png" />
                                  </image>
                               </ImageView>
                            </graphic>
 
                            <VBox.margin>
-                              <Insets top="25.0" />
+                              <Insets top="15" />
                            </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false">
+
+                        <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                            <graphic>
-                              <ImageView fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <!--Insertar la imagen de Calendario -->
                                     <Image url="@images/CalendarImageDT.png" />
                                  </image>
                               </ImageView>
                            </graphic>
 
                            <VBox.margin>
-                              <Insets top="25.0" />
+                              <Insets top="15.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false">
+
+                        <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                            <graphic>
-                              <ImageView fitHeight="32" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <!--Insertar la imagen de Notas -->
                                     <Image url="@images/NotePadImageDT.png" />
                                  </image>
                               </ImageView>
                            </graphic>
 
                            <VBox.margin>
-                              <Insets left="6.0" top="25.0" />
+                              <Insets left="6.0" top="15.0" />
                            </VBox.margin>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
                         </Button>
-                        <Button mnemonicParsing="false">
+
+                        <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
                            <graphic>
-                              <ImageView accessibleRole="BUTTON" fitHeight="32" fitWidth="32" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <!--Insertar la imagen de Configuracion -->
+                                    <Image url="@images/TimerImageDT.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <!--
+                           Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
+                           -->
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </Button>
+
+                        <Button alignment="TOP_CENTER" mnemonicParsing="false" styleClass="sidebar-button">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
                                     <Image url="@images/ConfigurationImageDT.png" />
                                  </image>
                               </ImageView>
                            </graphic>
-
+                           <!--
+                           Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
+                           -->
                            <VBox.margin>
-                              <Insets bottom="20.0" top="10.0" />
+                              <Insets bottom="0.0" top="40.0" />
                            </VBox.margin>
                         </Button>
                      </children>
-                     <BorderPane.margin>
-                        <Insets />
-                     </BorderPane.margin>
                   </VBox>
                </left>
+
                <center>
                   <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>

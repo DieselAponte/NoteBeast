@@ -28,19 +28,6 @@
     -fx-text-fill: #6D9DC5;
 }
 
-.section-heading4{
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #6D9DC5;
-}
-
-.section-heading5{
-    -fx-font-size: 10px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #6D9DC5;
-}
-
-
 /* AnchorPane principal (fondo base) */
 .anchor-pane {
     -fx-background-color: #17183B;
@@ -54,6 +41,20 @@
     -fx-border-radius: 5px;
 }
 
+/* Estilo base del botón del sidebar */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+
+/* Efecto hover con turquesa */
+.sidebar-button:hover {
+    -fx-background-color: #00C9A7;
+}
+
+
 /* Pane del centro (contenedor de los títulos y listas) */
 .pane {
     -fx-background-color: #17183B;
@@ -66,6 +67,18 @@
     -fx-border-color: transparent;
 }
 
+.button-text {
+    -fx-text-fill: white;
+    -fx-background-color: #6D9DC5;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+}
+
+.button-text:hover{
+    -fx-background-color: #00C9A7;
+}
+
+/*Estilos de la lista de tareas*/
 .add-button {
     -fx-background-color: #28df99;
     -fx-text-fill: white;
@@ -74,7 +87,6 @@
     -fx-alignment: center;
     -fx-cursor: hand;
 }
-/*Estilos de la lista de tareas*/
 /* Scroll general */
 .task-scroll {
     -fx-background: transparent;
