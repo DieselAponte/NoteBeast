@@ -14,10 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="500.0"
-            styleClass="anchor-pane" stylesheets="@style/NotePadStyle.css"
-            xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="aponte.dev.notebeast.controller.NotePadController">
+<AnchorPane prefHeight="400.0" prefWidth="500.0" styleClass="anchor-pane" stylesheets="@style/NotePadStyle.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="aponte.dev.notebeast.controller.NotePadController">
     <children>
         <Pane layoutX="10.0" layoutY="10.0" prefHeight="380" prefWidth="480.0">
             <children>
@@ -90,9 +87,7 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
-                                    <!--
-                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                                    -->
+
                                     <VBox.margin>
                                         <Insets top="15.0" />
                                     </VBox.margin>
@@ -106,9 +101,7 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
-                                    <!--
-                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                                    -->
+
                                     <VBox.margin>
                                         <Insets bottom="0.0" top="40.0" />
                                     </VBox.margin>
@@ -125,23 +118,28 @@
                                         <Label layoutX="14" layoutY="14" styleClass="section-title" text="Bloc de notas" />
                                         <!-- 1. Topbar de pestañas -->
                                         <HBox layoutX="9.0" layoutY="37.0" prefHeight="46.0" prefWidth="391.0" spacing="2" styleClass="tab-bar">
-                                             <HBox prefHeight="43.0" prefWidth="101.0" styleClass="tab-button">
+                                             <HBox prefHeight="42.0" prefWidth="115.0" styleClass="tab-button">
                                                 <children>
-                                                              <!-- pestaña abierta -->
-                                                              <Button styleClass="tab-text" text="Sin título" />
-                                                              <!-- botón cerrar pestaña -->
-                                                              <Button styleClass="tab-text" text="✕" />
+                                                    <!-- pestaña abierta -->
+                                                    <Button prefWidth="70.0" styleClass="tab-text" text="Sin título" />
+                                                    <!-- botón cerrar pestaña -->
+                                                    <Button mnemonicParsing="false" styleClass="tab-close-button">
+                                                        <graphic>
+                                                            <ImageView fitHeight="25" fitWidth="20" pickOnBounds="true" preserveRatio="true">
+                                                                <image>
+                                                                    <Image url="@images/CloseImageDT.png" />
+                                                                </image>
+                                                            </ImageView>
+                                                        </graphic>
+                                                    </Button>
                                                 </children>
                                              </HBox>
                                             <!-- botón nueva pestaña -->
-                                            <Button styleClass="tab-add-button" text="+" />
-                                            <!--Cambiar el icono del boton por el add_button-->
-                                            <Button mnemonicParsing="false" styleClass="add-button">
+                                            <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" styleClass="add-button">
                                                 <graphic>
-                                                    <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                                        <image>
-                                                            <!--Añadir imagen del icono del add-button-->
-                                                            <!--<Image url="@images/Task_AddSimbolButton.png" />-->
+                                                    <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>-->
+                                                            <Image url="@images/AddImageDT.png" />
                                                         </image>
                                                     </ImageView>
                                                 </graphic>
@@ -160,7 +158,6 @@
 
                                         <!-- 3. Área de texto principal -->
                                         <TextArea layoutX="5.0" layoutY="90.0" prefHeight="256.0" prefWidth="400" styleClass="text-area" wrapText="true" />
-
                                     </children>
                                 </Pane>
                             </children>

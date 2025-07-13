@@ -86,9 +86,7 @@
                                  </image>
                               </ImageView>
                            </graphic>
-                           <!--
-                           Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                           -->
+
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin>
@@ -102,9 +100,7 @@
                                  </image>
                               </ImageView>
                            </graphic>
-                           <!--
-                           Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                           -->
+
                            <VBox.margin>
                               <Insets bottom="0.0" top="40.0" />
                            </VBox.margin>

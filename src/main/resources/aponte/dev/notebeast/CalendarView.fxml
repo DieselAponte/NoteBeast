@@ -120,14 +120,13 @@
                             <children>
                                 <Pane layoutY="10" prefHeight="360" prefWidth="410" styleClass="anchor-pane">
                                     <children>
-                                        <HBox layoutX="21.0" prefHeight="35.0" prefWidth="364.0" spacing="10" styleClass="navigation-month">
+                                        <HBox layoutX="21.0" layoutY="6.0" prefHeight="29.0" prefWidth="364.0" spacing="10" styleClass="navigation-month">
                                             <!-- Botón de retroceso alineado a la izquierda -->
                                             <Button alignment="CENTER_LEFT" mnemonicParsing="false" styleClass="navigation-forward-back-arrows">
                                                 <graphic>
-                                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                                                         <image>
-                                                            <!-- Reemplazar luego con imagen del back -->
-                                                            <Image url="@images/ConfigurationImageDT.png" />
+                                                            <Image url="@images/back-arrowImageDT.png" />
                                                         </image>
                                                     </ImageView>
                                                 </graphic>
@@ -145,10 +144,9 @@
                                             <!-- Botón de avance alineado a la derecha -->
                                             <Button alignment="CENTER_RIGHT" mnemonicParsing="false" styleClass="navigation-forward-back-arrows">
                                                 <graphic>
-                                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true">
+                                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true">
                                                         <image>
-                                                            <!-- Reemplazar luego con imagen del forward -->
-                                                            <Image url="@images/ConfigurationImageDT.png" />
+                                                            <Image url="@images/forward-arrowImageDT.png" />
                                                         </image>
                                                     </ImageView>
                                                 </graphic>

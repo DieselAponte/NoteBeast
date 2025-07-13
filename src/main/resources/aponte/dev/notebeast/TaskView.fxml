@@ -86,9 +86,7 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
-                                    <!--
-                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                                    -->
+
                                     <VBox.margin>
                                         <Insets top="15.0" />
                                     </VBox.margin>
@@ -102,9 +100,7 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
-                                    <!--
-                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                                    -->
+
                                     <VBox.margin>
                                         <Insets bottom="0.0" top="40.0" />
                                     </VBox.margin>
@@ -125,13 +121,12 @@
                                                 <Insets left="14.0" />
                                                 </HBox.margin>
                                             </Label>
-                                            <!--Verificar la utilidad de mnemonicParsing-->
-                                            <Button mnemonicParsing="false" styleClass="add-button">
+
+                                            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" styleClass="add-button">
                                                 <graphic>
-                                                    <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                    <ImageView fitHeight="25.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                                                         <image>
-                                                            <!--Añadir imagen del icono del add-button-->
-                                                            <!--<Image url="@images/Task_AddSimbolButton.png" />-->
+                                                            <Image url="@images/AddImageDT.png" />
                                                         </image>
                                                     </ImageView>
                                                 </graphic>
@@ -154,20 +149,19 @@
 
                                                <Button mnemonicParsing="false" styleClass="check-button">
                                                    <graphic>
-                                                       <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                       <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                                            <image>
                                                                <!--Añadir imagen del icono del check-button-->
-                                                               <!--<Image url="@images/Task_CheckSimbolButton.png" />-->
+                                                               <Image url="@images/CheckImageDT.png" />
                                                            </image>
                                                        </ImageView>
                                                    </graphic>
                                                </Button>
-                                               <Button styleClass="menu-button">
+                                               <Button mnemonicParsing="false" styleClass="menu-button">
                                                    <graphic>
-                                                       <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                       <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                                            <image>
-                                                               <!--Añadir imagen del icono del ellipsisMenu-button-->
-                                                               <!--<Image url="@images/Task_EllipsisSimbolButton.png" />-->
+                                                               <Image url="@images/ElipsisImageDT.png" />
                                                            </image>
                                                        </ImageView>
                                                    </graphic>

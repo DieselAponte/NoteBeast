@@ -85,9 +85,7 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
-                                    <!--
-                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                                    -->
+
                                     <VBox.margin>
                                         <Insets top="15.0" />
                                     </VBox.margin>
@@ -101,9 +99,7 @@
                                             </image>
                                         </ImageView>
                                     </graphic>
-                                    <!--
-                                    Revisar los Insets de Margin de Configuration, esta alejado de todos los demás componentes
-                                    -->
+
                                     <VBox.margin>
                                         <Insets bottom="0.0" top="40.0" />
                                     </VBox.margin>
@@ -130,17 +126,18 @@
                                                                 <TextField layoutX="40" layoutY="90" prefHeight="40" prefWidth="70" styleClass="text-field" />
                                                             </VBox>
                                                             <Label layoutX="30" layoutY="300" styleClass="text-light" text="min">
-                                                <HBox.margin>
-                                                   <Insets top="23.0" />
-                                                </HBox.margin></Label>
+                                                                <HBox.margin>
+                                                                    <Insets top="23.0" />
+                                                                </HBox.margin></Label>
                                                             <VBox alignment="TOP_CENTER" prefHeight="60" prefWidth="60">
                                                                 <Label layoutX="30" layoutY="80" prefWidth="60.0" styleClass="highlighted-text" text="Descanso" />
                                                                 <TextField layoutX="40" layoutY="90" prefHeight="40" prefWidth="70" styleClass="text-field" />
                                                             </VBox>
+
                                                             <Label layoutX="30" layoutY="80" styleClass="text-light" text="min">
-                                                <HBox.margin>
-                                                   <Insets top="23.0" />
-                                                </HBox.margin></Label>
+                                                                <HBox.margin>
+                                                                    <Insets top="23.0" />
+                                                                </HBox.margin></Label>
                                                         </HBox>
                                                     </children>
                                                 </Pane>
