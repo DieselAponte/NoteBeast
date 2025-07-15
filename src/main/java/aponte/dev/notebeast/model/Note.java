@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Note {
     private int id;
-    private String titleNote;
+    private String title;
     private String contentNote;
     private String noteDocumentPath;
     private final LocalDateTime createdAt;
@@ -12,11 +12,11 @@ public class Note {
     //Just in case
     private int idAffiliatedProject;
 
-    public Note(LocalDateTime updatedAt, LocalDateTime createdAt, String noteDocumentPath, String titleNote, String contentNote, int id) {
+    public Note(LocalDateTime updatedAt, LocalDateTime createdAt, String noteDocumentPath, String title, String contentNote, int id) {
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
         this.noteDocumentPath = noteDocumentPath;
-        this.titleNote = titleNote;
+        this.title = title;
         this.contentNote = contentNote;
         this.id = id;
         this.idAffiliatedProject = 0;
@@ -28,8 +28,8 @@ public class Note {
         return id;
     }
 
-    public String getTitleNote() {
-        return titleNote;
+    public String getTitle() {
+        return title;
     }
 
     public String getContentNote() {
@@ -58,8 +58,8 @@ public class Note {
         this.id = id;
     }
 
-    public void setTitleNote(String titleNote) {
-        this.titleNote = titleNote;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setContentNote(String contentNote) {
