@@ -1,81 +1,24 @@
 🔹 Consideraciones:
 No se crea tabla de usuario, ya que se trata de una app local de un solo usuario.
-
 Se usan claves foráneas donde es relevante, por ejemplo, para vincular ProgressEntry y Note con Project.
-
 Las listas (objectives, resourcePaths) se modelan en tablas separadas, ya que SQLite no tiene arrays ni listas.
-
 Enums (TaskStatus, Priority) se manejan como TEXT con validación de valores válidos.
 
 📌 Ventajas de no tener una tabla de usuario
 Ya que la app es local y para un solo usuario, no necesitas control de acceso, autenticación ni multitenencia. Esto simplifica el diseño y evita sobreingeniería.
-
-
 UserConfig se asume con una única fila, sin id.
 
--- Tabla de Proyectos
-CREATE TABLE Project (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    description TEXT NOT NULL
-);
+Tareas pendientes:
+-Validación de la creación de las tablas para la base de datos
+-Implementación de los ConcreteRepositorys
+-Verificar la utilidad de Singleton para manejar la conexión de SQLite como SQLiteManager o ConfigManager.
+-Implementación del patrón facade para facilitar y agregar una capa de abstracción a los Services
+-Revisión de los patrones creacionales como Builder para los Settings, Task, Project, Note debido a que estos tienen campos opcionales.Factory para la creación de vistas o controladores dinámicamente desde el SceneManager o ViewLoader.
+-Revisión del patron State para la mascota y posible codificación de esta en el paquete entity, revisar requerimientos para su creación.
 
--- Tabla de Objetivos de Proyecto
-CREATE TABLE ProjectObjective (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    project_id INTEGER NOT NULL,
-    objective TEXT NOT NULL,
-    FOREIGN KEY (project_id) REFERENCES Project(id) ON DELETE CASCADE
-);
-
--- Tabla de Rutas de Recursos
-CREATE TABLE ProjectResourcePath (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    project_id INTEGER NOT NULL,
-    path TEXT NOT NULL,
-    FOREIGN KEY (project_id) REFERENCES Project(id) ON DELETE CASCADE
-);
-
--- Registro de Progresos de Proyecto
-CREATE TABLE ProgressEntry (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    project_id INTEGER NOT NULL,
-    timestamp TEXT NOT NULL, -- ISO 8601 datetime
-    currentObjective TEXT NOT NULL,
-    eventDescription TEXT NOT NULL,
-    statusComment TEXT NOT NULL,
-    FOREIGN KEY (project_id) REFERENCES Project(id) ON DELETE CASCADE
-);
-
--- Tareas
-CREATE TABLE Task (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    description TEXT,
-    status TEXT NOT NULL CHECK(status IN ('UNRESOLVED', 'RESOLVED')),
-    priority TEXT NOT NULL CHECK(priority IN ('LOW', 'MID', 'HIGH')),
-    deadline TEXT -- puede ser NULL
-);
-
--- Notas
-CREATE TABLE Note (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    contentNote TEXT NOT NULL,
-    noteDocumentPath TEXT NOT NULL,
-    createdAt TEXT NOT NULL,
-    updatedAt TEXT,
-    project_id INTEGER, -- puede ser NULL
-    FOREIGN KEY (project_id) REFERENCES Project(id) ON DELETE SET NULL
-);
-
--- Configuración del Usuario (solo un registro)
-CREATE TABLE UserConfig (
-    theme TEXT NOT NULL,
-    fontSize INTEGER NOT NULL,
-    language TEXT NOT NULL,
-    notifications INTEGER NOT NULL CHECK (notifications IN (0, 1)), -- booleano
-    defaultStudyDuration INTEGER NOT NULL,
-    defaultBreakDuration INTEGER NOT NULL,
-    alertDaysInAdvance INTEGER NOT NULL
-);
+Tareas siguientes:
+-Consideración de base de datos NoSQL para el manejo de JSON en el ProgressEntry cuando se trata del area de proyectos.
+-Verificar la utilidad de Adapter para los múltipes tipos de archivos compatibles (.txt .json .pdf)
+-Revisión de patrones de Comportamiento como el Observer para la configuración del usuario respecto al theme de la app o fuente para que los componentes deben de actualizarse automáticamente.
+-Command para la implementación de deshacer/rehacer de edición de notas o cambios en las tareas.
+Strategy para ordenamiento de tareas o priorización (Por fecha, urgencia, tipo)
