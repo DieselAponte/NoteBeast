@@ -12,10 +12,10 @@ public class UserConfig {
     private int defaultBreakDuration;
     private int alertDaysInAdvance;
     //Atributos de configuración para el bloqueo(PIN)
-    private int blockPIN;
+    //private int blockPIN;
 
     public UserConfig(String theme, int fontSize, String language, boolean notifications, int defaultStudyDuration,
-                      int defaultBreakDuration, int alertDaysInAdvance, int blockPIN) {
+                      int defaultBreakDuration, int alertDaysInAdvance) {
         this.theme = theme;
         this.fontSize = fontSize;
         this.language = language;
@@ -23,7 +23,6 @@ public class UserConfig {
         this.defaultStudyDuration = defaultStudyDuration;
         this.defaultBreakDuration = defaultBreakDuration;
         this.alertDaysInAdvance = alertDaysInAdvance;
-        this.blockPIN = blockPIN;
     }
 
     //Getters
@@ -55,10 +54,6 @@ public class UserConfig {
         return alertDaysInAdvance;
     }
 
-    public int getBlockPIN() {
-        return blockPIN;
-    }
-
     //Setters
     public void setTheme(String theme) {
         this.theme = theme;
@@ -86,9 +81,5 @@ public class UserConfig {
 
     public void setAlertDaysInAdvance(int alertDaysInAdvance) {
         this.alertDaysInAdvance = alertDaysInAdvance;
-    }
-
-    public void setBlockPIN(int blockPIN) {
-        this.blockPIN = blockPIN;
     }
 }

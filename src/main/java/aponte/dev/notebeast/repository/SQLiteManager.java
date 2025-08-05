@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class SQLiteManager {
-    private static SQLiteManager instace;
-    private static final String URL="jdbc:sqlite:src/main/resources/db/app_storage.db";
+    private static SQLiteManager instance;
+    private static final String URL="jdbc:sqlite:src/main/resources/aponte/dev/notebeast/db/AppStorage_.db";
     private Connection connection;
 
     private SQLiteManager(){
@@ -19,8 +19,25 @@ public class SQLiteManager {
         }
     }
 
+    public static synchronized SQLiteManager getInstance() {
+        if (instance == null) {
+            instance = new SQLiteManager();
+        }
+        return instance;
+    }
+
     public Connection getConnection() {
         return connection;
+    }
+
+    public void closeConnection(){
+        try{
+            if(connection != null && !connection.isClosed()){
+                connection.close();
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     private void InitializeTables(){
@@ -35,21 +52,24 @@ public class SQLiteManager {
         String createProjectObjectiveTable = """
                 CREATE TABLE IF NOT EXISTS ProjectObjective(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    project_id INTEGER NOT NULL,
-                    objective TEXT NOT NULL
+                    project_id INTEGER NOT NULL,    
+                    objective TEXT NOT NULL,
                     FOREIGN KEY (project_id) REFERENCES Project(id)
                 );
                 """;
-        String createProjectResourcePathTable = """
-                CREATE TABLE IF NOT EXISTS ProjectResourcePath(
+
+        //Revisión de tablas de los documentos guardados
+        String createProjectResourceLogTable = """
+                CREATE TABLE IF NOT EXISTS ProjectResourceLog(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     project_id INTEGER NOT NULL,
-                    path TEXT NOT NULL
+                    path TEXT NOT NULL,
                     FOREIGN KEY (project_id) REFERENCES Project(id) ON DELETE CASCADE
                 );
                 """;
-        String createProgressEntryTable = """
-                CREATE TABLE IF NOT EXISTS ProgressEntry(
+
+        String createProjectProgressLogTable = """
+                CREATE TABLE IF NOT EXISTS ProjectProgressLog(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     project_id INTEGER NOT NULL,
                     timestamp TEXT NOT NULL,
@@ -72,9 +92,8 @@ public class SQLiteManager {
         String createNoteTable = """
                 CREATE TABLE Note(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    title TEXT NOT NULL,
-                    contentNote TEXT NOT NULL,
-                    noteDocumentPath TEXT NOT NULL,
+                    title TEXT NOT NULL,                
+                    documentPath TEXT NOT NULL,
                     createdAt TEXT NOT NULL,
                     updatedAt TEXT,
                     project_id INTEGER,
@@ -97,8 +116,8 @@ public class SQLiteManager {
         try(Statement statement = connection.createStatement()){
             statement.execute(createProjectTable);
             statement.execute(createProjectObjectiveTable);
-            statement.execute(createProjectResourcePathTable);
-            statement.execute(createProgressEntryTable);
+            statement.execute(createProjectResourceLogTable);
+            statement.execute(createProjectProgressLogTable);
             statement.execute(createTaskTable);
             statement.execute(createNoteTable);
             statement.execute(createUserConfigTable);
@@ -109,3 +128,4 @@ public class SQLiteManager {
 
 
 }
+

@@ -17,5 +17,5 @@ public interface ProgressEntryRepository extends Repository<ProgressEntry, Integ
     @Override
     ProgressEntry update(ProgressEntry entity);
     @Override
-    ProgressEntry delete(ProgressEntry entity);
+    void delete(ProgressEntry entity);
 }

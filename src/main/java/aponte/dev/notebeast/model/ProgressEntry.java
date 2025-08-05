@@ -1,5 +1,7 @@
 package aponte.dev.notebeast.model;
 
+import aponte.dev.notebeast.util.ObjectiveStatus;
+
 import java.time.LocalDateTime;
 
 public class ProgressEntry {
@@ -8,9 +10,10 @@ public class ProgressEntry {
     private final LocalDateTime timestamp;
     private final String currentObjective;
     private final String eventDescription;
-    private final String statusComment;
+    private final ObjectiveStatus statusComment;
 
-    public ProgressEntry(int idAffiliatedProject, int id, LocalDateTime timestamp, String currentObjective, String eventDescription, String statusComment) {
+    public ProgressEntry(int idAffiliatedProject, int id, LocalDateTime timestamp, String currentObjective,
+                         String eventDescription, ObjectiveStatus statusComment) {
         this.id = id;
         this.idAffiliatedProject = idAffiliatedProject;
         this.timestamp = timestamp;
@@ -40,7 +43,7 @@ public class ProgressEntry {
         return eventDescription;
     }
 
-    public String getStatusComment() {
+    public ObjectiveStatus getStatusComment() {
         return statusComment;
     }
 

@@ -9,7 +9,6 @@ Ya que la app es local y para un solo usuario, no necesitas control de acceso, a
 UserConfig se asume con una única fila, sin id.
 
 Tareas pendientes:
--Validación de la creación de las tablas para la base de datos
 -Implementación de los ConcreteRepositorys
 -Verificar la utilidad de Singleton para manejar la conexión de SQLite como SQLiteManager o ConfigManager.
 -Implementación del patrón facade para facilitar y agregar una capa de abstracción a los Services

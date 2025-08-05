@@ -1,8 +1,6 @@
 package aponte.dev.notebeast.model;
 
 import aponte.dev.notebeast.util.*;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Task {
@@ -13,12 +11,10 @@ public class Task {
     private Priority priority;
     private LocalDateTime deadline;
 
-    //Este constructor debería de inicializar la tarea como TaskStatus.UNRESOLVED VERIFICAR
-    public Task(int id, String title, String description, TaskStatus status, Priority priority) {
+    public Task(int id, String title, TaskStatus status, Priority priority) {
         this.id = id;
         this.title = title;
-        this.description = description;
-        this.status = status;
+        this.status = TaskStatus.UNRESOLVED;
         this.priority = priority;
     }
 

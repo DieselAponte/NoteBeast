@@ -10,15 +10,15 @@ import java.util.Optional;
 public interface TaskRepository extends Repository<Task, Integer> {
     //CRUD Operations
     @Override
-    List<Task> readAll();
-    @Override
-    Optional<Task> readById(Integer taskId);
-    @Override
     Task create(Task task);
     @Override
     Task update(Task task);
     @Override
-    Task delete(Task task);
+    void delete(Task task);
+    @Override
+    List<Task> readAll();
+    @Override
+    Optional<Task> readById(Integer taskId);
 
     //Metodos adicionales
     List<Task> readByPriority(Priority priority);

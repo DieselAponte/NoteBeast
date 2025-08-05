@@ -2,6 +2,8 @@ package aponte.dev.notebeast.repository;
 
 import aponte.dev.notebeast.model.Note;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,10 +17,14 @@ public interface NoteRepository extends Repository<Note, Integer> {
     @Override
     Note update(Note entity);
     @Override
-    Note delete(Note entity);
+    void delete(Note entity);
 
     //Metodos adicionales
-    Note readByAffiliatedProject(Integer projectId);
-    Note readByTitle(String title);
-    //Note readByFavorite(boolean favorite);
+    Optional<Note> readByTitle(String title);
+    List<Note> readRecentNotes(); //Cuidado con las nullException
+    void insertAssociatedResources(int projectId, Note note);
+
+    //Metodos privados
+    //Note buildFromResultSet(ResultSet rs) throws SQLException;
+
 }

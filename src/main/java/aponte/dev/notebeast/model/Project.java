@@ -12,10 +12,10 @@ public class Project {
     private List<String> resourcePaths = new ArrayList<String>();
     private List<ProgressEntry> progressLog = new ArrayList<ProgressEntry>();
 
-    public Project(String title, String descripcion, int id) {
+    public Project(int id, String title, String descripcion) {
+        this.id = id;
         this.title = title;
         this.descripcion = descripcion;
-        this.id = id;
     }
 
     //Objectives methods

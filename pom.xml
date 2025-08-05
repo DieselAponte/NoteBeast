@@ -84,7 +84,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>aponte.dev.notebeast/aponte.dev.notebeast.HelloApplication</mainClass>
+                            <mainClass>aponte.dev.notebeast/aponte.dev.notebeast.MainApp</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

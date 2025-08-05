@@ -1,29 +1,31 @@
 package aponte.dev.notebeast.model;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 
 public class Note {
-    private int id;
-    private String title;
-    private String contentNote;
-    private String noteDocumentPath;
-    private final LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
-    //Just in case
-    private int idAffiliatedProject;
+        private int id;
+        private String title;
+        //Se ha agregado la keyword transient por la temporalidad del contenido del documento
+        private transient String contentNote;
+        private String documentPath;
+        private final LocalDateTime createdAt;
+        private LocalDateTime updatedAt;
+        //Just in case
+        private int idAffiliatedProject;
 
-    public Note(LocalDateTime updatedAt, LocalDateTime createdAt, String noteDocumentPath, String title, String contentNote, int id) {
-        this.updatedAt = updatedAt;
-        this.createdAt = createdAt;
-        this.noteDocumentPath = noteDocumentPath;
-        this.title = title;
-        this.contentNote = contentNote;
+    public Note(int id, String title, String documentPath, LocalDateTime createdAt) {
         this.id = id;
-        this.idAffiliatedProject = 0;
+        this.title = title;
+        this.documentPath = documentPath;
+        this.createdAt = createdAt != null ? createdAt : LocalDateTime.now();
+        this.updatedAt = this.createdAt; // Se inicializa como la misma fecha al crearla
+        this.idAffiliatedProject = 0;    // No está afiliada a ningún proyecto aún
     }
 
     //Getters
-
     public int getId() {
         return id;
     }
@@ -33,11 +35,16 @@ public class Note {
     }
 
     public String getContentNote() {
-        return contentNote;
+        try{
+            return Files.readString(Path.of(documentPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Error " + e.getMessage();
+        }
     }
 
-    public String getNoteDocumentPath() {
-        return noteDocumentPath;
+    public String getDocumentPath() {
+        return documentPath;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -53,7 +60,6 @@ public class Note {
     }
 
     //Setters
-
     public void setId(int id) {
         this.id = id;
     }
@@ -66,8 +72,8 @@ public class Note {
         this.contentNote = contentNote;
     }
 
-    public void setNoteDocumentPath(String noteDocumentPath) {
-        this.noteDocumentPath = noteDocumentPath;
+    public void setDocumentPath(String documentPath) {
+        this.documentPath = documentPath;
     }
 
     public void setUpdatedAt(LocalDateTime updatedAt) {

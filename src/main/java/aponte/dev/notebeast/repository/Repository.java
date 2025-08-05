@@ -8,5 +8,5 @@ public interface Repository <T,K> {
     Optional<T> readById(K criteria);
     T create(T entity);
     T update(T entity);
-    T delete(T entity);
+    void delete(T entity);
 }
