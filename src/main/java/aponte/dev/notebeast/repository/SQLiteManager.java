@@ -100,6 +100,15 @@ public class SQLiteManager {
                     FOREIGN KEY (project_id) REFERENCES Project(id) ON DELETE SET NULL
                 );
                 """;
+
+        String createRecentNotesTable = """
+                CREATE TABLE IF NOT EXISTS RecentNotes(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL,
+                openedAt TEXT NOT NULL
+                );
+                """;
+
         String createUserConfigTable = """
                 CREATE TABLE IF NOT EXISTS UserConfig(
                     theme TEXT NOT NULL,
@@ -120,6 +129,7 @@ public class SQLiteManager {
             statement.execute(createProjectProgressLogTable);
             statement.execute(createTaskTable);
             statement.execute(createNoteTable);
+            statement.execute(createRecentNotesTable);
             statement.execute(createUserConfigTable);
         } catch (SQLException e){
             e.printStackTrace();

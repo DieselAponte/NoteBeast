@@ -2,7 +2,6 @@ package aponte.dev.notebeast.repository;
 
 import aponte.dev.notebeast.model.Note;
 
-import javax.swing.text.html.HTMLDocument;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,13 +23,17 @@ public class ConcreteNoteRepository implements NoteRepository {
         """;
         try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, note.getTitle());
-            stmt.setString(2, note.getDocumentPath());
+            if(note.getDocumentPath() != null){
+                stmt.setString(2, note.getDocumentPath());
+            } else {
+                stmt.setNull(2, Types.VARCHAR);
+            }
             stmt.setString(3, note.getCreatedAt().toString());
             stmt.setString(4, note.getUpdatedAt().toString());
-            if (note.getIdAffiliatedProject() == 0) {
-                stmt.setNull(5, Types.INTEGER);
-            } else {
+            if (note.getIdAffiliatedProject() != null) {
                 stmt.setInt(5, note.getIdAffiliatedProject());
+            } else {
+                stmt.setNull(5, Types.INTEGER);
             }
             stmt.executeUpdate();
 
@@ -56,10 +59,10 @@ public class ConcreteNoteRepository implements NoteRepository {
             stmt.setString(1, note.getTitle());
             stmt.setString(2, note.getDocumentPath());
             stmt.setString(3, note.getUpdatedAt().toString());
-            if (note.getIdAffiliatedProject() == 0) {
-                stmt.setNull(4, Types.INTEGER);
-            } else {
+            if (note.getIdAffiliatedProject() != null) {
                 stmt.setInt(4, note.getIdAffiliatedProject());
+            } else {
+                stmt.setNull(4, Types.INTEGER);
             }
             stmt.setInt(5, note.getId());
             stmt.executeUpdate();
@@ -113,9 +116,11 @@ public class ConcreteNoteRepository implements NoteRepository {
     private Note buildNoteFromResultSet(ResultSet rs) throws SQLException {
         int id = rs.getInt("id");
         String title = rs.getString("title");
+        Note note = new Note(id, title);
         String path = rs.getString("noteDocumentPath");
         LocalDateTime createdAt = LocalDateTime.parse(rs.getString("createdAt"));
-        Note note = new Note(id, title, path, createdAt);
+        note.setDocumentPath(path);
+        note.setCreatedAt(createdAt);
 
         String updatedAtStr = rs.getString("updatedAt");
         if (updatedAtStr != null) {
@@ -156,11 +161,5 @@ public class ConcreteNoteRepository implements NoteRepository {
             e.printStackTrace();
             System.out.println("Error " + e.getMessage());
         }
-    }
-
-    @Override
-    public List<Note> readRecentNotes(){
-        List<Note> recentNotes = new ArrayList<>();
-        return recentNotes;
     }
 }

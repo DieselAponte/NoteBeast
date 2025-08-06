@@ -9,19 +9,18 @@ import java.util.Optional;
 
 public interface NoteRepository extends Repository<Note, Integer> {
     @Override
-    List<Note> readAll();
-    @Override
-    Optional<Note> readById(Integer id);
-    @Override
     Note create(Note entity);
     @Override
     Note update(Note entity);
     @Override
     void delete(Note entity);
+    @Override
+    List<Note> readAll();
+    @Override
+    Optional<Note> readById(Integer id);
 
     //Metodos adicionales
     Optional<Note> readByTitle(String title);
-    List<Note> readRecentNotes(); //Cuidado con las nullException
     void insertAssociatedResources(int projectId, Note note);
 
     //Metodos privados

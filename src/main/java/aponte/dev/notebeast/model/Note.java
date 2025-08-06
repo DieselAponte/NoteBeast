@@ -11,20 +11,17 @@ public class Note {
         //Se ha agregado la keyword transient por la temporalidad del contenido del documento
         private transient String contentNote;
         private String documentPath;
-        private final LocalDateTime createdAt;
+        private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
         //Just in case
-        private int idAffiliatedProject;
+        private Integer idAffiliatedProject;
 
-    public Note(int id, String title, String documentPath, LocalDateTime createdAt) {
+    public Note(int id, String title) {
         this.id = id;
         this.title = title;
-        this.documentPath = documentPath;
-        this.createdAt = createdAt != null ? createdAt : LocalDateTime.now();
-        this.updatedAt = this.createdAt; // Se inicializa como la misma fecha al crearla
-        this.idAffiliatedProject = 0;    // No está afiliada a ningún proyecto aún
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = createdAt;
     }
-
     //Getters
     public int getId() {
         return id;
@@ -35,11 +32,13 @@ public class Note {
     }
 
     public String getContentNote() {
-        try{
+        if (documentPath == null) return "";
+        try {
             return Files.readString(Path.of(documentPath));
-        } catch (IOException e) {
+        } catch(IOException e){
             e.printStackTrace();
-            return "Error " + e.getMessage();
+            e.getMessage();
+            return "Surgio un error inesperado. " + e.getMessage();
         }
     }
 
@@ -55,7 +54,7 @@ public class Note {
         return updatedAt;
     }
 
-    public int getIdAffiliatedProject() {
+    public Integer getIdAffiliatedProject() {
         return idAffiliatedProject;
     }
 
@@ -80,7 +79,13 @@ public class Note {
         this.updatedAt = updatedAt;
     }
 
-    public void setIdAffiliatedProject(int idAffiliatedProject) {
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setIdAffiliatedProject(Integer idAffiliatedProject) {
         this.idAffiliatedProject = idAffiliatedProject;
     }
+
+
 }
