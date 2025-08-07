@@ -7,15 +7,15 @@ import java.util.List;
 public class Project {
     private int id;
     private String title;
-    private String descripcion;
+    private String description;
     private List<String> objectives = new ArrayList<String>();
     private List<String> resourcePaths = new ArrayList<String>();
     private List<ProgressEntry> progressLog = new ArrayList<ProgressEntry>();
 
-    public Project(int id, String title, String descripcion) {
+    public Project(int id, String title, String description) {
         this.id = id;
         this.title = title;
-        this.descripcion = descripcion;
+        this.description = description;
     }
 
     //Objectives methods
@@ -51,8 +51,8 @@ public class Project {
         return title;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
     public List<String> getObjectives() {
@@ -76,8 +76,8 @@ public class Project {
         this.title = title;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setObjectives(List<String> objectives) {

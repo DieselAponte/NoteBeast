@@ -2,8 +2,6 @@ package aponte.dev.notebeast.repository;
 
 import aponte.dev.notebeast.model.ProgressEntry;
 import aponte.dev.notebeast.model.Project;
-import aponte.dev.notebeast.repository.ProjectRepository;
-import aponte.dev.notebeast.repository.SQLiteManager;
 import aponte.dev.notebeast.util.ObjectiveStatus;
 
 import java.sql.*;
@@ -24,7 +22,7 @@ public class ConcreteProjectRepository implements ProjectRepository {
         String insertProjectSQL = "INSERT INTO Project(title, description) VALUES (?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(insertProjectSQL, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, project.getTitle());
-            stmt.setString(2, project.getDescripcion());
+            stmt.setString(2, project.getDescription());
             stmt.executeUpdate();
 
             ResultSet keys = stmt.getGeneratedKeys();
@@ -40,6 +38,38 @@ public class ConcreteProjectRepository implements ProjectRepository {
             e.printStackTrace();
         }
         return project;
+    }
+
+    @Override
+    public Project update(Project project) {
+        String sql = "UPDATE Project SET title = ?, description = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, project.getTitle());
+            stmt.setString(2, project.getDescription() );
+            stmt.setInt(3, project.getId());
+            stmt.executeUpdate();
+
+            // Limpiar y volver a insertar datos relacionados
+            deleteChildTables(project.getId());
+            insertObjectives(project.getId(), project.getObjectives());
+            insertResourcePaths(project.getId(), project.getResourcePaths());
+            insertProgressLog(project.getId(), project.getProgressLog());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return project;
+    }
+
+    @Override
+    public void delete(Project project) {
+        String sql = "DELETE FROM Project WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setInt(1, project.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void insertObjectives(int projectId, List<String> objectives) throws SQLException {
@@ -184,32 +214,26 @@ public class ConcreteProjectRepository implements ProjectRepository {
         String description = rs.getString("description");
         Project project = new Project(id, title, description);
         List<String> objectives = readObjectives(id);
+        if(objectives != null) {
+            project.setObjectives(objectives);
+        } else {
+            project.setObjectives(new ArrayList<>());
+        }
         List<String> resourcePaths = readPaths(id);
+        if(resourcePaths != null) {
+            project.setResourcePaths(resourcePaths);
+        } else {
+            project.setResourcePaths(new ArrayList<>());
+        }
         List<ProgressEntry> progressLog = readProgressLog(id);
+        if(progressLog != null) {
+            project.setProgressLog(progressLog);
+        } else {
+            project.setProgressLog(new ArrayList<>());
+        }
         project.setObjectives(objectives);
         project.setResourcePaths(resourcePaths);
         project.setProgressLog(progressLog);
-        return project;
-    }
-
-    @Override
-    public Project update(Project project) {
-        String sql = "UPDATE Project SET title = ?, description = ? WHERE id = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, project.getTitle());
-            stmt.setString(2, project.getDescripcion());
-            stmt.setInt(3, project.getId());
-            stmt.executeUpdate();
-
-            // Limpiar y volver a insertar datos relacionados
-            deleteChildTables(project.getId());
-            insertObjectives(project.getId(), project.getObjectives());
-            insertResourcePaths(project.getId(), project.getResourcePaths());
-            insertProgressLog(project.getId(), project.getProgressLog());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return project;
     }
 
@@ -224,14 +248,4 @@ public class ConcreteProjectRepository implements ProjectRepository {
         }
     }
 
-    @Override
-    public void delete(Project project) {
-        String sql = "DELETE FROM Project WHERE id = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, project.getId());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }
